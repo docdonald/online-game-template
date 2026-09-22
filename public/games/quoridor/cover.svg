@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Quoridor</title>
+  <desc id="desc">A strategic board game cover with pawns and walls.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1d3b"/>
+      <stop offset="1" stop-color="#54203f"/>
+    </linearGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#30365f"/>
+      <stop offset="1" stop-color="#151827"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1040" cy="80" r="170" fill="#6366f1" opacity=".22"/>
+  <circle cx="160" cy="560" r="220" fill="#f43f5e" opacity=".16"/>
+  <g transform="translate(705 88) rotate(8)">
+    <rect width="360" height="360" rx="28" fill="url(#board)" stroke="#8990c8" stroke-width="6"/>
+    <g stroke="#7279ae" stroke-width="3" opacity=".72">
+      <path d="M45 0v360M90 0v360M135 0v360M180 0v360M225 0v360M270 0v360M315 0v360"/>
+      <path d="M0 45h360M0 90h360M0 135h360M0 180h360M0 225h360M0 270h360M0 315h360"/>
+    </g>
+    <g fill="#f43f5e">
+      <circle cx="180" cy="45" r="18"/>
+      <circle cx="90" cy="315" r="18"/>
+    </g>
+    <g fill="#6366f1">
+      <rect x="90" y="135" width="92" height="18" rx="9"/>
+      <rect x="225" y="225" width="92" height="18" rx="9" transform="rotate(90 271 234)"/>
+    </g>
+  </g>
+  <text x="82" y="245" fill="#e7e9ee" font-family="Arial, sans-serif" font-size="82" font-weight="800" letter-spacing="8">QUORIDOR</text>
+  <text x="88" y="315" fill="#c6cae7" font-family="Arial, sans-serif" font-size="28" letter-spacing="3">STRATEGY · BLOCK · REACH THE OTHER SIDE</text>
+  <rect x="88" y="380" width="210" height="8" rx="4" fill="#f43f5e"/>
+</svg>

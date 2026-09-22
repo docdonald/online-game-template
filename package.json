@@ -1,0 +1,44 @@
+{
+  "name": "games-hub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.10.0",
+  "description": "Portal game ala CrazyGames — kumpulan game buatan sendiri, langsung main di browser. Next.js 16 + Tailwind v4.",
+  "author": "ibnu-anjang",
+  "license": "MIT",
+  "homepage": "https://github.com/ibnu-anjang/GAMES-HUB#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibnu-anjang/GAMES-HUB.git"
+  },
+  "keywords": [
+    "games",
+    "game-portal",
+    "nextjs",
+    "tailwindcss",
+    "typescript",
+    "quoridor",
+    "browser-games"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "preview": "pnpm dlx serve out",
+    "lint": "next lint",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.9.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  }
+}
