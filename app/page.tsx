@@ -6,29 +6,40 @@ import GameBrowser from "@/components/GameBrowser";
 import GameSection from "@/components/GameSection";
 import JsonLd from "@/components/JsonLd";
 import { getWebsiteStructuredData } from "@/lib/seo";
-import { siteDescription, siteName, siteUrl } from "@/lib/site";
+import {
+  coreKeyword,
+  defaultShareImage,
+  featuredGameSlug,
+  homeDescription,
+  homeTitle,
+  siteName,
+  siteUrl,
+} from "@/lib/site";
 import { games } from "@/lib/games";
 
 export const metadata: Metadata = {
-  title: "Play Free Browser Games Online",
-  description: siteDescription,
+  title: { absolute: homeTitle },
+  description: homeDescription,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName,
-    title: "Play Free Browser Games Online",
-    description: siteDescription,
+    title: homeTitle,
+    description: homeDescription,
     url: "/",
+    images: [defaultShareImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Play Free Browser Games Online",
-    description: siteDescription,
+    title: homeTitle,
+    description: homeDescription,
+    images: [defaultShareImage],
   },
 };
 
 export default function HomePage() {
-  const featuredGame = games.find((game) => game.isPopular) ?? games[0];
+  const featuredGame =
+    games.find((game) => game.slug === featuredGameSlug) ?? games[0];
   const newGames = games.filter((game) => game.isNew);
   const popularGames = games.filter((game) => game.isPopular);
 
@@ -36,14 +47,19 @@ export default function HomePage() {
     <div className="portal-page">
       <JsonLd data={getWebsiteStructuredData(siteUrl, siteName)} />
       {featuredGame && (
-        <section className="portal-hero-shell" aria-labelledby="featured-game-title">
+        <section className="portal-hero-shell" aria-labelledby="home-title">
           <div className="portal-ad-rail portal-ad-rail-left">
             <AdSlot />
           </div>
 
           <div className="portal-main-grid">
             <CategorySidebar />
-            <FeaturedGame game={featuredGame} />
+            <div className="portal-hero-stack">
+              <h1 id="home-title" className="home-core-title">
+                {coreKeyword}
+              </h1>
+              <FeaturedGame game={featuredGame} />
+            </div>
           </div>
 
           <div className="portal-ad-rail portal-ad-rail-right">

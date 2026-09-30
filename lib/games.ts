@@ -30,7 +30,7 @@ export type Game = {
   /** Optional path to a cover image under /public. */
   thumbnail?: string;
   categories: Category[];
-  /** Local path or absolute URL for the game iframe. */
+  /** Absolute HTTPS URL for the game iframe (external platform embed). */
   iframeUrl: string;
   /** Flags for home-page sections. */
   isNew?: boolean;
@@ -55,119 +55,152 @@ export const categoryDescriptions: Record<Category, string> = {
 
 export const games: Game[] = [
   {
-    slug: "quoridor",
-    title: "Quoridor",
-    tagline: "Blok jalur lawan sebelum mereka sampai duluan.",
+    slug: "fish-sort-puzzle",
+    title: "Fish Sort Puzzle",
+    tagline: "Sort colorful fish into matching tubes — free in your browser.",
     description:
-      "Game papan strategi klasik. Gerakkan pion ke sisi seberang sambil memasang dinding untuk menghadang lawan. Main 2 pemain lokal atau lawan AI.",
+      "Fish Sort Puzzle is a relaxing browser puzzle where you move colorful fish between seaweed branches until matching colors are grouped. Play free online with no download.",
     howToPlay: [
-      "Choose Player vs AI or local two-player mode in the game settings.",
-      "Click a valid square, or use the arrow keys or WASD, to move your pawn across the board.",
-      "Click a gap to place a wall. Rotate it with Space, R, or right-click; every player must keep a path to the goal.",
-      "Be the first player to reach the opposite edge to win.",
+      "Move fish between seaweed branches to group matching colors.",
+      "Place a fish on an empty spot or on top of another fish of the same color.",
+      "Keep at least one open space so you can rearrange without getting stuck.",
+      "Clear the level when every fish is sorted correctly.",
     ],
     features: [
-      "Local two-player mode and an AI opponent.",
-      "Simple rules with deep tactical possibilities.",
-      "Responsive board controls for mouse and keyboard.",
+      "Free online fish sorting with no download or account.",
+      "Calm puzzle pacing with increasing colors and crowded boards.",
+      "Works on desktop and mobile browsers.",
     ],
     controls: [
-      "Click a square to move your pawn.",
-      "Click a wall gap to place a wall.",
-      "Press Space or R, or right-click, to rotate a wall.",
+      "Click or tap a fish to move it.",
+      "Place it on an empty spot or on a matching color.",
+      "Leave open spaces so you can rearrange without getting stuck.",
     ],
     faq: [
       {
-        question: "Can I play Quoridor against the computer?",
-        answer: "Yes. Choose Player vs AI from the game settings before starting a match.",
+        question: "Is Fish Sort Puzzle free to play?",
+        answer:
+          "Yes. You can play Fish Sort Puzzle free online in your browser with no purchase required.",
       },
       {
-        question: "What is the goal in Quoridor?",
-        answer: "Reach the opposite edge of the board before your opponent while keeping a legal path open.",
-      },
-    ],
-    icon: "♟️",
-    thumbnail: "/games/quoridor/cover.svg",
-    categories: ["Board", "Strategy"],
-    iframeUrl: "/games/quoridor/index.html",
-    isNew: true,
-    isPopular: true,
-    publishedAt: "2026-09-01",
-    updatedAt: "2026-09-20",
-  },
-  {
-    slug: "color-tap",
-    title: "Color Tap",
-    tagline: "Test your reflexes by tapping the target before time runs out.",
-    description:
-      "A quick arcade reaction game. Tap the moving target as many times as possible before the timer reaches zero.",
-    howToPlay: [
-      "Press Start to begin the thirty-second round.",
-      "Click the colored target whenever it appears.",
-      "Try to beat your best score before the timer ends.",
-    ],
-    features: [
-      "Fast rounds that are easy to replay.",
-      "A simple score chase for desktop and touch screens.",
-      "No account or installation required.",
-    ],
-    controls: [
-      "Click or tap the colored target.",
-      "Press Start to begin a new round.",
-    ],
-    faq: [
-      {
-        question: "How long is a Color Tap round?",
-        answer: "Each round lasts thirty seconds, so you can play a quick challenge whenever you have a moment.",
+        question: "Do I need to download Fish Sort Puzzle?",
+        answer:
+          "No download is required. Open the game page and press Play to start in your browser.",
       },
       {
-        question: "Can I play Color Tap on a phone?",
-        answer: "Yes. The target responds to touch and mouse clicks.",
-      },
-    ],
-    icon: "🎯",
-    categories: ["Action", "Arcade"],
-    iframeUrl: "/games/color-tap/index.html",
-    isNew: true,
-    publishedAt: "2026-09-10",
-    updatedAt: "2026-09-20",
-  },
-  {
-    slug: "number-rush",
-    title: "Number Rush",
-    tagline: "Find the numbers in order and clear the board as quickly as you can.",
-    description:
-      "A lightweight browser puzzle game about focus and speed. Click each number in order while the board reshuffles for a fresh challenge.",
-    howToPlay: [
-      "Press Start to create a numbered board.",
-      "Click the next number in ascending order.",
-      "Finish the board quickly and try again for a better time.",
-    ],
-    features: [
-      "Short puzzle rounds with instant restarts.",
-      "A simple challenge for practicing focus and speed.",
-      "Works with mouse, touch, and keyboard focus.",
-    ],
-    controls: [
-      "Click the next number in the sequence.",
-      "Press Start to reset the board.",
-    ],
-    faq: [
-      {
-        question: "What is the goal in Number Rush?",
-        answer: "Click every number from one to nine in ascending order as quickly as possible.",
+        question: "Can I play Fish Sort Puzzle on my phone?",
+        answer:
+          "Yes. The fish controls work with touch, so you can sort on phones and tablets.",
       },
       {
-        question: "Is Number Rush a strategy game?",
-        answer: "It is a quick puzzle challenge that rewards planning your next click and keeping a steady rhythm.",
+        question: "What is the goal of Fish Sort Puzzle?",
+        answer:
+          "Group fish of the same color together. A fish can only sit on an empty spot or on a matching color.",
       },
     ],
-    icon: "🔢",
+    icon: "🐠",
+    thumbnail: "/images/fish-sort-puzzle.svg",
     categories: ["Puzzle", "Strategy"],
-    iframeUrl: "/games/number-rush/index.html",
+    iframeUrl:
+      "https://html5.gamedistribution.com/3c8c6bee93124a6da49127d3569b1f21/?gd_sdk_referrer_url=https://gamedistribution.com/games/fish-sort/",
+    isNew: true,
     isPopular: true,
-    publishedAt: "2026-09-12",
-    updatedAt: "2026-09-20",
+    publishedAt: "2026-09-20",
+    updatedAt: "2026-09-30",
+  },
+  {
+    slug: "color-water-sort",
+    title: "Color Water Sort",
+    tagline: "Pour matching colors until every bottle is solved.",
+    description:
+      "Color Water Sort is a free online puzzle about pouring liquid between bottles. Plan ahead, keep an empty bottle ready, and clear each level without a download.",
+    howToPlay: [
+      "Select a bottle to lift its top color layer.",
+      "Pour into an empty bottle or one that shares the same top color.",
+      "Fill bottles completely with a single color to finish the level.",
+      "Restart a level anytime if you paint yourself into a corner.",
+    ],
+    features: [
+      "Classic water-sort logic in a free browser session.",
+      "Short levels that are easy to replay.",
+      "Touch-friendly pouring for phones and desktops.",
+    ],
+    controls: [
+      "Click or tap a bottle to select it.",
+      "Click or tap another bottle to pour.",
+    ],
+    faq: [
+      {
+        question: "Is Color Water Sort free online?",
+        answer:
+          "Yes. Color Water Sort runs free in your browser with no installation.",
+      },
+      {
+        question: "How do I free up space when bottles are full?",
+        answer:
+          "Keep at least one empty bottle so you can temporarily move colors while sorting.",
+      },
+      {
+        question: "Can I play Color Water Sort offline?",
+        answer:
+          "You need an internet connection to load the embedded game the first time. After that, availability depends on the game provider’s caching.",
+      },
+    ],
+    icon: "🧪",
+    thumbnail: "/images/color-water-sort.svg",
+    categories: ["Puzzle", "Arcade"],
+    iframeUrl:
+      "https://html5.gamedistribution.com/bba6ae893ed4493eb3553c93637db902/?gd_sdk_referrer_url=https://gamedistribution.com/games/water-sort-puzzle-3/",
+    isNew: true,
+    publishedAt: "2026-09-22",
+    updatedAt: "2026-09-30",
+  },
+  {
+    slug: "bubble-sort-blast",
+    title: "Bubble Sort Blast",
+    tagline: "Clear matching bubbles with quick taps and short combo runs.",
+    description:
+      "Bubble Sort Blast is a free browser arcade puzzle. Pop matching bubble groups, chase combos, and keep the board clear — no download required.",
+    howToPlay: [
+      "Tap a cluster of two or more matching bubbles to clear them.",
+      "Build combos by clearing groups in quick succession.",
+      "Keep enough open space so new bubbles do not trap the board.",
+      "Aim for a higher score before the board fills up.",
+    ],
+    features: [
+      "Fast free-to-play rounds in your browser.",
+      "Simple tap controls with arcade scoring.",
+      "Easy to learn and quick to replay.",
+    ],
+    controls: [
+      "Click or tap a matching bubble group to clear it.",
+      "Plan ahead so larger groups stay available.",
+    ],
+    faq: [
+      {
+        question: "Is Bubble Sort Blast free?",
+        answer:
+          "Yes. You can play Bubble Sort Blast free online without installing an app.",
+      },
+      {
+        question: "Does Bubble Sort Blast work on mobile?",
+        answer:
+          "Yes. The game is built for tap and click controls in modern mobile browsers.",
+      },
+      {
+        question: "What makes a good move in Bubble Sort Blast?",
+        answer:
+          "Clear larger matching groups when you can, and leave yourself room to create the next combo.",
+      },
+    ],
+    icon: "🫧",
+    thumbnail: "/images/bubble-sort-blast.svg",
+    categories: ["Puzzle", "Action", "Arcade"],
+    iframeUrl:
+      "https://html5.gamedistribution.com/b34a92d49e9348d591116bb98fe9dab1/?gd_sdk_referrer_url=https://gamedistribution.com/games/bubble-shooter/",
+    isPopular: true,
+    publishedAt: "2026-09-24",
+    updatedAt: "2026-09-30",
   },
 ];
 

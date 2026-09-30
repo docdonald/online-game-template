@@ -8,8 +8,12 @@ import GamePlayer from "@/components/GamePlayer";
 import GameCard from "@/components/GameCard";
 import JsonLd from "@/components/JsonLd";
 import { categorySlug } from "@/lib/games";
-import { getBreadcrumbStructuredData, getGameStructuredData } from "@/lib/seo";
-import { siteName, siteUrl } from "@/lib/site";
+import {
+  getBreadcrumbStructuredData,
+  getFaqStructuredData,
+  getGameStructuredData,
+} from "@/lib/seo";
+import { coreKeyword, siteName, siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return games.map((g) => ({ slug: g.slug }));
@@ -22,25 +26,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const game = getGame(slug);
-  if (!game) return { title: "Game tidak ditemukan" };
+  if (!game) return { title: "Game not found" };
+
+  const title = `${game.title} – Play Free Online`;
+  const description = `Play ${game.title} free online in your browser. No download required — a ${coreKeyword} style puzzle you can start instantly on Games Hub.`;
 
   return {
-    title: game.title,
-    description: game.description,
-    keywords: [...game.categories, "online game", "browser game"],
+    title,
+    description,
+    keywords: [...game.categories, "online game", "browser game", "free online"],
     alternates: { canonical: `/game/${game.slug}/` },
     openGraph: {
       type: "website",
       siteName,
-      title: game.title,
-      description: game.description,
+      title,
+      description,
       url: `/game/${game.slug}/`,
       images: game.thumbnail ? [{ url: game.thumbnail, alt: game.title }] : [],
     },
     twitter: {
       card: "summary_large_image",
-      title: game.title,
-      description: game.description,
+      title,
+      description,
       images: game.thumbnail ? [game.thumbnail] : [],
     },
   };
@@ -55,10 +62,13 @@ export default async function GamePage({
   const game = getGame(slug);
   if (!game) notFound();
   const relatedGames = getRelatedGames(game, games);
+  const fallbackHref =
+    relatedGames[0] != null ? `/game/${relatedGames[0].slug}/` : "/";
 
   return (
     <div>
       <JsonLd data={getGameStructuredData(game, siteUrl)} />
+      {game.faq.length > 0 && <JsonLd data={getFaqStructuredData(game)} />}
       <JsonLd
         data={getBreadcrumbStructuredData([
           { name: "Home", url: `${siteUrl}/` },
@@ -83,12 +93,10 @@ export default async function GamePage({
         href="/"
         className="mb-4 inline-flex items-center gap-1 text-sm text-ink-dim transition hover:text-ink"
       >
-        ← Kembali ke semua game
+        ← Back to all games
       </Link>
 
-      <GamePlayer iframeUrl={game.iframeUrl} title={game.title} />
-
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="mt-2 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold">{game.title}</h1>
           <p className="mt-2 max-w-2xl text-ink-dim">{game.description}</p>
@@ -104,6 +112,15 @@ export default async function GamePage({
             </Link>
           ))}
         </div>
+      </div>
+
+      <div className="mt-6">
+        <GamePlayer
+          iframeUrl={game.iframeUrl}
+          title={game.title}
+          coverImage={game.thumbnail}
+          fallbackHref={fallbackHref}
+        />
       </div>
 
       <GameGuide game={game} />

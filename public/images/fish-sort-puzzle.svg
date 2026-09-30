@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Fish Sort Puzzle</title>
+  <desc id="desc">Cover art for Fish Sort Puzzle with colorful fish and tubes.</desc>
+  <rect width="1200" height="630" fill="#124e6b"/>
+  <circle cx="1040" cy="80" r="170" fill="#3ec6d8" opacity=".25"/>
+  <circle cx="140" cy="540" r="210" fill="#f8d24e" opacity=".16"/>
+  <g fill="#1d6f8a">
+    <rect x="220" y="150" width="140" height="360" rx="70"/>
+    <rect x="430" y="150" width="140" height="360" rx="70"/>
+    <rect x="640" y="150" width="140" height="360" rx="70"/>
+    <rect x="850" y="150" width="140" height="360" rx="70"/>
+  </g>
+  <g>
+    <ellipse cx="290" cy="250" rx="42" ry="24" fill="#f43f5e"/>
+    <ellipse cx="290" cy="330" rx="42" ry="24" fill="#f43f5e"/>
+    <ellipse cx="500" cy="280" rx="42" ry="24" fill="#f8d24e"/>
+    <ellipse cx="500" cy="360" rx="42" ry="24" fill="#41b968"/>
+    <ellipse cx="710" cy="240" rx="42" ry="24" fill="#41b968"/>
+    <ellipse cx="710" cy="320" rx="42" ry="24" fill="#6366f1"/>
+    <ellipse cx="920" cy="300" rx="42" ry="24" fill="#6366f1"/>
+    <ellipse cx="920" cy="380" rx="42" ry="24" fill="#f8d24e"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Color Water Sort</title>
+  <desc id="desc">Cover art for Color Water Sort with stacked bottles of color.</desc>
+  <rect width="1200" height="630" fill="#3a2a4d"/>
+  <circle cx="160" cy="90" r="180" fill="#e9b568" opacity=".2"/>
+  <g>
+    <rect x="250" y="140" width="120" height="360" rx="28" fill="#22182e"/>
+    <rect x="440" y="140" width="120" height="360" rx="28" fill="#22182e"/>
+    <rect x="630" y="140" width="120" height="360" rx="28" fill="#22182e"/>
+    <rect x="820" y="140" width="120" height="360" rx="28" fill="#22182e"/>
+    <rect x="266" y="280" width="88" height="200" rx="18" fill="#c9484b"/>
+    <rect x="456" y="220" width="88" height="260" rx="18" fill="#41b968"/>
+    <rect x="646" y="320" width="88" height="160" rx="18" fill="#6366f1"/>
+    <rect x="836" y="250" width="88" height="230" rx="18" fill="#e9b568"/>
+  </g>
+</svg>

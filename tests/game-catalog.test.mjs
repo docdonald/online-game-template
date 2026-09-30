@@ -14,9 +14,9 @@ function game(slug, categories) {
     tagline: slug,
     description: slug,
     icon: "♟",
-    thumbnail: "/games/quoridor/cover.svg",
+    thumbnail: "/images/fish-sort-puzzle.svg",
     categories,
-    iframeUrl: `/games/${slug}/index.html`,
+    iframeUrl: `https://html5.gamedistribution.com/${slug}/`,
     howToPlay: ["Reach the opposite side."],
   };
 }
@@ -43,12 +43,15 @@ test("more games returns an empty list when the catalog has only the current gam
   assert.deepEqual(getRelatedGames(current, [current]), []);
 });
 
-test("the starter catalog includes local playable examples for internal linking", async () => {
+test("the starter catalog uses external https iframe URLs", async () => {
   assert.ok(games.length >= 3);
 
   for (const game of games) {
-    if (!game.iframeUrl.startsWith("/games/")) continue;
-    const gameEntry = join(projectRoot, "public", game.iframeUrl.slice(1));
-    await access(gameEntry, constants.F_OK);
+    assert.match(game.iframeUrl, /^https:\/\//);
+    assert.ok(!game.iframeUrl.startsWith("/"));
+    if (game.thumbnail) {
+      const cover = join(projectRoot, "public", game.thumbnail.slice(1));
+      await access(cover, constants.F_OK);
+    }
   }
 });

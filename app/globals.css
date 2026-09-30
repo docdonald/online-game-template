@@ -203,12 +203,32 @@ input {
   text-transform: uppercase;
 }
 
-.featured-game-copy h1 {
+.home-core-title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.85rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+}
+
+.portal-hero-stack {
+  min-width: 0;
+}
+
+.featured-game-copy h2 {
   margin: 0.35rem 0 0;
   font-size: clamp(1.6rem, 3vw, 2.5rem);
   font-weight: 900;
   letter-spacing: -0.05em;
   line-height: 0.98;
+}
+
+.featured-game-tagline {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
 }
 
 .game-status {
@@ -241,7 +261,8 @@ input {
   background: #e9e0d4;
 }
 
-.featured-player iframe {
+.featured-player iframe,
+.featured-player .game-player-stage {
   height: min(52vw, 660px);
   min-height: 440px;
   max-height: 660px;
@@ -409,7 +430,8 @@ input {
     margin-top: 1rem;
   }
 
-  .featured-player iframe {
+  .featured-player iframe,
+  .featured-player .game-player-stage {
     height: min(92vw, 560px);
     min-height: 360px;
   }
@@ -421,7 +443,8 @@ input {
   border: 0;
 }
 
-.game-player:fullscreen iframe {
+.game-player:fullscreen iframe,
+.game-player:fullscreen .game-player-stage {
   height: 100vh;
   min-height: 0;
   max-height: none;

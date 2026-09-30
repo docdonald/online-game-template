@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Bubble Sort Blast</title>
+  <desc id="desc">Cover art for Bubble Sort Blast with colorful bubbles.</desc>
+  <rect width="1200" height="630" fill="#1b3a4a"/>
+  <circle cx="180" cy="490" r="90" fill="#41b968"/>
+  <circle cx="340" cy="360" r="78" fill="#c9484b"/>
+  <circle cx="510" cy="250" r="86" fill="#e9b568"/>
+  <circle cx="690" cy="340" r="94" fill="#6366f1"/>
+  <circle cx="860" cy="220" r="70" fill="#f43f5e"/>
+  <circle cx="980" cy="410" r="110" fill="#3ec6d8"/>
+  <circle cx="430" cy="500" r="62" fill="#f8d24e"/>
+</svg>

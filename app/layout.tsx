@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
-import { siteDescription, siteName, siteUrl } from "@/lib/site";
+import { defaultShareImage, siteDescription, siteName, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     siteName,
     title: siteName,
     description: siteDescription,
-    images: ["/games/quoridor/cover.svg"],
+    images: [defaultShareImage],
   },
   twitter: {
     card: "summary_large_image",
     title: siteName,
     description: siteDescription,
-    images: ["/games/quoridor/cover.svg"],
+    images: [defaultShareImage],
   },
 };
 

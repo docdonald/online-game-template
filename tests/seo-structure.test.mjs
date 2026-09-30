@@ -7,6 +7,7 @@ import {
 } from "../lib/games.ts";
 import {
   getBreadcrumbStructuredData,
+  getFaqStructuredData,
   getGameStructuredData,
   getWebsiteStructuredData,
 } from "../lib/seo.ts";
@@ -41,21 +42,25 @@ test("breadcrumb structured data preserves page hierarchy", () => {
   const schema = getBreadcrumbStructuredData([
     { name: "Home", url: `${siteUrl}/` },
     { name: "Board games", url: `${siteUrl}/category/board/` },
-    { name: "Quoridor", url: `${siteUrl}/game/quoridor/` },
+    { name: "Fish Sort Puzzle", url: `${siteUrl}/game/fish-sort-puzzle/` },
   ]);
 
   assert.equal(schema["@type"], "BreadcrumbList");
   assert.equal(schema.itemListElement[2].position, 3);
-  assert.equal(schema.itemListElement[2].item, `${siteUrl}/game/quoridor/`);
+  assert.equal(schema.itemListElement[2].item, `${siteUrl}/game/fish-sort-puzzle/`);
 });
 
-test("website structured data advertises the global search endpoint", () => {
+test("website structured data does not advertise a fake search endpoint", () => {
   const schema = getWebsiteStructuredData(siteUrl);
 
   assert.equal(schema["@type"], "WebSite");
-  assert.equal(schema.potentialAction["@type"], "SearchAction");
-  assert.equal(
-    schema.potentialAction.target.urlTemplate,
-    `${siteUrl}/?q={search_term_string}#all-games`,
-  );
+  assert.equal(schema.potentialAction, undefined);
+});
+
+test("FAQ structured data maps game questions", () => {
+  const schema = getFaqStructuredData(games[0]);
+
+  assert.equal(schema["@type"], "FAQPage");
+  assert.ok(schema.mainEntity.length >= 3);
+  assert.equal(schema.mainEntity[0]["@type"], "Question");
 });

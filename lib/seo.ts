@@ -15,14 +15,6 @@ export function getWebsiteStructuredData(siteUrl: string, name = "Games Hub") {
     "@type": "WebSite",
     name,
     url: absoluteUrl(siteUrl, "/"),
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteUrl.replace(/\/$/, "")}/?q={search_term_string}#all-games`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
@@ -40,6 +32,21 @@ export function getGameStructuredData(game: Game, siteUrl: string) {
     operatingSystem: "Any",
     datePublished: game.publishedAt,
     dateModified: game.updatedAt,
+  };
+}
+
+export function getFaqStructuredData(game: Game) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: game.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }
 

@@ -39,7 +39,7 @@ test("stores a cover and iframe URL for each game", async () => {
 
   assert.match(gameRegistry, /iframeUrl:/);
   assert.match(gameRegistry, /thumbnail:/);
-  assert.equal(await fileExists("public/games/quoridor/cover.svg"), true);
+  assert.equal(await fileExists("public/og/default-share.svg"), true);
 });
 
 test("renders new and popular game sections on the homepage", async () => {
@@ -99,7 +99,8 @@ test("connects game pages back to categories and exposes structured SEO data", a
   assert.match(gamePage, /JsonLd/);
   assert.match(categoryPage, /getCategoryDescription/);
   assert.match(seoHelpers, /VideoGame/);
-  assert.match(seoHelpers, /SearchAction/);
+  assert.match(seoHelpers, /FAQPage/);
+  assert.doesNotMatch(seoHelpers, /SearchAction/);
   assert.match(jsonLd, /application\/ld\+json/);
 });
 

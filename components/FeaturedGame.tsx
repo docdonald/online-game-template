@@ -7,7 +7,7 @@ export default function FeaturedGame({ game }: { game: Game }) {
       <div className="featured-game-copy">
         <div>
           <p className="eyebrow">Now playing</p>
-          <h1 id="featured-game-title">{game.title}</h1>
+          <h2 id="featured-game-title">{game.title}</h2>
         </div>
         <span className="game-status">
           <span className="game-status-dot" aria-hidden="true" />
@@ -18,13 +18,15 @@ export default function FeaturedGame({ game }: { game: Game }) {
       <GamePlayer
         iframeUrl={game.iframeUrl}
         title={game.title}
+        coverImage={game.thumbnail}
+        fallbackHref="/#all-games"
         className="featured-player"
       />
 
       <div className="featured-game-description">
         <div>
           <p className="featured-game-kicker">Featured game</p>
-          <h2>{game.title}</h2>
+          <p className="featured-game-tagline">{game.tagline}</p>
         </div>
         <p>{game.description}</p>
       </div>
