@@ -26,7 +26,7 @@ export const homeTitle = "Fish Sort Puzzle – Play Free Online";
 export const homeDescription =
   "Play Fish Sort Puzzle free online in your browser. No download required — sort colorful fish, clear the board, and enjoy quick puzzle rounds anytime.";
 
-export const defaultShareImage = "/og/default-share.svg";
+export const defaultShareImage = "/og/default-share.png";
 
 export const trustPagePaths = [
   "/about/",

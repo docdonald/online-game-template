@@ -29,11 +29,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
-    ...categories.map((category) => ({
-      url: `${siteUrl}/category/${categorySlug(category)}/`,
-      lastModified: latestGameUpdate,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    })),
+    ...categories
+      .filter((category) =>
+        games.some((game) => game.categories.includes(category)),
+      )
+      .map((category) => ({
+        url: `${siteUrl}/category/${categorySlug(category)}/`,
+        lastModified: latestGameUpdate,
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+      })),
   ];
 }

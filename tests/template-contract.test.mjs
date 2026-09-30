@@ -39,7 +39,7 @@ test("stores a cover and iframe URL for each game", async () => {
 
   assert.match(gameRegistry, /iframeUrl:/);
   assert.match(gameRegistry, /thumbnail:/);
-  assert.equal(await fileExists("public/og/default-share.svg"), true);
+  assert.equal(await fileExists("public/og/default-share.png"), true);
 });
 
 test("renders new and popular game sections on the homepage", async () => {
@@ -123,8 +123,17 @@ test("requires a production site URL instead of a silent localhost fallback", as
   assert.match(siteConfig, /throw new Error/);
 });
 
+test("game browser empty state is English and hydrates search after mount", async () => {
+  const browser = await readProjectFile("components/GameBrowser.tsx");
+
+  assert.match(browser, /No games match your search/);
+  assert.doesNotMatch(browser, /Nggak/);
+  assert.match(browser, /useState\(""\)/);
+  assert.match(browser, /useEffect/);
+});
+
 test("ships share images and game covers in public/, without self-hosted games", async () => {
-  assert.equal(await fileExists("public/og/default-share.svg"), true);
+  assert.equal(await fileExists("public/og/default-share.png"), true);
   assert.equal(await fileExists("public/images/fish-sort-puzzle.svg"), true);
   assert.equal(await fileExists("public/images/color-water-sort.svg"), true);
   assert.equal(await fileExists("public/images/bubble-sort-blast.svg"), true);

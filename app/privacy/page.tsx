@@ -22,6 +22,12 @@ export default function PrivacyPage() {
         </p>
       </section>
       <section>
+        <h2 className="text-2xl font-bold text-ink">Embedded games</h2>
+        <p className="mt-3 leading-relaxed">
+          Game pages load third-party HTML5 games in an iframe after you press Play. Those providers may set their own cookies, show ads, or store data in your browser. This site does not control those practices.
+        </p>
+      </section>
+      <section>
         <h2 className="text-2xl font-bold text-ink">Hosting and analytics</h2>
         <p className="mt-3 leading-relaxed">
           The site owner should update this page if analytics, advertising, cookies, or other third-party services are added during deployment.

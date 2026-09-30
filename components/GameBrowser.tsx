@@ -1,15 +1,17 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { categories, type Category, type Game } from "@/lib/games";
 import GameCard from "./GameCard";
 
 export default function GameBrowser({ games }: { games: Game[] }) {
-  const [query, setQuery] = useState(() => {
-    if (typeof window === "undefined") return "";
-    return new URLSearchParams(window.location.search).get("q") ?? "";
-  });
+  const [query, setQuery] = useState("");
   const [active, setActive] = useState<Category | "All">("All");
+
+  useEffect(() => {
+    const nextQuery = new URLSearchParams(window.location.search).get("q") ?? "";
+    setQuery(nextQuery);
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -53,7 +55,7 @@ export default function GameBrowser({ games }: { games: Game[] }) {
 
       {filtered.length === 0 ? (
         <p className="py-16 text-center text-ink-dim">
-          Nggak ada game yang cocok. Coba kata kunci lain.
+          No games match your search. Try another keyword.
         </p>
       ) : (
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

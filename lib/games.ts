@@ -205,7 +205,6 @@ export const games: Game[] = [
 ];
 
 export const categories: Category[] = [
-  "Board",
   "Strategy",
   "Puzzle",
   "Action",
