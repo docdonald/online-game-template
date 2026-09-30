@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import InfoPage from "@/components/InfoPage";
+import { siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact Games Hub",
-  description: "Contact Games Hub about game suggestions, corrections, and partnership questions.",
+  title: `Contact ${siteName}`,
+  description: `Contact ${siteName} about game suggestions, corrections, and partnership questions.`,
   alternates: { canonical: "/contact/" },
 };
 
@@ -11,7 +12,7 @@ export default function ContactPage() {
   return (
     <InfoPage
       eyebrow="Get in touch"
-      title="Contact Games Hub"
+      title={`Contact ${siteName}`}
       description="Send feedback about a game, report a broken embed, or suggest an improvement for the portal."
     >
       <section>

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import InfoPage from "@/components/InfoPage";
+import { siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Copyright and Removal Requests",
-  description: "Copyright and content removal information for Games Hub.",
+  description: `Copyright and content removal information for ${siteName}.`,
   alternates: { canonical: "/copyright/" },
 };
 

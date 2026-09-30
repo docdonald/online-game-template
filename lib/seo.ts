@@ -9,7 +9,7 @@ function absoluteUrl(siteUrl: string, path: string): string {
   return new URL(path, `${siteUrl.replace(/\/$/, "")}/`).toString();
 }
 
-export function getWebsiteStructuredData(siteUrl: string, name = "Games Hub") {
+export function getWebsiteStructuredData(siteUrl: string, name: string) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",

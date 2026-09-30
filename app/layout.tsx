@@ -48,7 +48,7 @@ export default function RootLayout({
               <Link href="/privacy/" className="transition hover:text-brand">Privacy</Link>
               <Link href="/copyright/" className="transition hover:text-brand">Copyright</Link>
             </nav>
-            <p>Made for fun · Games Hub</p>
+            <p>Made for fun · {siteName}</p>
           </div>
         </footer>
       </body>

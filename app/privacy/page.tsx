@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import InfoPage from "@/components/InfoPage";
+import { siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Read the privacy information for visitors to Games Hub.",
+  description: `Read the privacy information for visitors to ${siteName}.`,
   alternates: { canonical: "/privacy/" },
 };
 

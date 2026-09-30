@@ -51,7 +51,7 @@ test("breadcrumb structured data preserves page hierarchy", () => {
 });
 
 test("website structured data does not advertise a fake search endpoint", () => {
-  const schema = getWebsiteStructuredData(siteUrl);
+  const schema = getWebsiteStructuredData(siteUrl, "Fish Sort Puzzle");
 
   assert.equal(schema["@type"], "WebSite");
   assert.equal(schema.potentialAction, undefined);

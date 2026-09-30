@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import InfoPage from "@/components/InfoPage";
+import { siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
-  description: "Read the terms of use for playing games on Games Hub.",
+  description: `Read the terms of use for playing games on ${siteName}.`,
   alternates: { canonical: "/terms/" },
 };
 
@@ -12,7 +13,7 @@ export default function TermsPage() {
     <InfoPage
       eyebrow="Site policy"
       title="Terms of Use"
-      description="These general terms explain how visitors may use the Games Hub website and its embedded games."
+      description={`These general terms explain how visitors may use the ${siteName} website and its embedded games.`}
     >
       <section>
         <h2 className="text-2xl font-bold text-ink">Use of the site</h2>

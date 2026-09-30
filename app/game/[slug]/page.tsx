@@ -13,7 +13,7 @@ import {
   getFaqStructuredData,
   getGameStructuredData,
 } from "@/lib/seo";
-import { coreKeyword, siteName, siteUrl } from "@/lib/site";
+import { siteName, siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return games.map((g) => ({ slug: g.slug }));
@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!game) return { title: "Game not found" };
 
   const title = `${game.title} – Play Free Online`;
-  const description = `Play ${game.title} free online in your browser. No download required — a ${coreKeyword} style puzzle you can start instantly on Games Hub.`;
+  const description = `Play ${game.title} free online in your browser. No download required. ${game.description}`;
 
   return {
     title,

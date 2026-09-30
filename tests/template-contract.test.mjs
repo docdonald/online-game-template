@@ -115,6 +115,23 @@ test("includes reusable trust pages and footer navigation", async () => {
   assert.match(layout, /\/terms/);
 });
 
+test("requires a production site URL instead of a silent localhost fallback", async () => {
+  const siteConfig = await readProjectFile("lib/site.ts");
+
+  assert.match(siteConfig, /NEXT_PUBLIC_SITE_URL/);
+  assert.match(siteConfig, /NODE_ENV === ["']production["']/);
+  assert.match(siteConfig, /throw new Error/);
+});
+
+test("ships share images and game covers in public/, without self-hosted games", async () => {
+  assert.equal(await fileExists("public/og/default-share.svg"), true);
+  assert.equal(await fileExists("public/images/fish-sort-puzzle.svg"), true);
+  assert.equal(await fileExists("public/images/color-water-sort.svg"), true);
+  assert.equal(await fileExists("public/images/bubble-sort-blast.svg"), true);
+  assert.equal(await fileExists("public/games"), false);
+  assert.equal(await fileExists("public/robots.txt"), false);
+});
+
 test("documents the production site URL required by canonical metadata", async () => {
   const readme = await readProjectFile("README.md");
 
